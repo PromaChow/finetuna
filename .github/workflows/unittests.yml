@@ -17,9 +17,7 @@ jobs:
         - /home/jovyan/shared-scratch:/home/jovyan/shared-scratch
     name: Test
     runs-on:
-      - self-hosted
-      - linux
-      - shared-scratch
+      - ubuntu-latest
     steps:
       - name: Start Energy Measurement
         uses: green-coding-solutions/eco-ci-energy-estimation@v4
