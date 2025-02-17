@@ -5,7 +5,7 @@ on:
       - main
 
 env:
-  OMP_NUM_THREADS: '1'
+  OMP_NUM_THREADS: "1"
 jobs:
   light_test:
     container:
@@ -27,9 +27,9 @@ jobs:
           json-output: true
           task: start-measurement
       - name: Checkout actions
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up environment
-        run: 'export CWD=$(pwd)
+        run: "export CWD=$(pwd)
 
           cd $CWD
 
@@ -41,7 +41,7 @@ jobs:
 
           cd $CWD
 
-          '
+          "
       - id: measurement-3
         name: Record Measurement After Set up environment
         uses: green-coding-solutions/eco-ci-energy-estimation@v4
@@ -50,9 +50,9 @@ jobs:
           label: Set up environment
           task: get-measurement
       - name: Run pytest on light test suite unit tests
-        run: 'pytest finetuna/tests/suites/light_suite.py -s
+        run: "pytest finetuna/tests/suites/light_suite.py -s
 
-          '
+          "
       - id: measurement-5
         name: Record Measurement After Run pytest on light test suite unit tests
         uses: green-coding-solutions/eco-ci-energy-estimation@v4
@@ -67,7 +67,8 @@ jobs:
           json-output: true
           task: display-results
       - name: Save Total Energy Consumption Data
-        run: echo '${{ steps.final-measurement.outputs.data-total-json }}' > total_energy_consumption-${{
+        run:
+          echo '${{ steps.final-measurement.outputs.data-total-json }}' > total_energy_consumption-${{
           github.run_id }}.json
       - name: Upload Energy Consumption Artifact
         uses: actions/upload-artifact@v4
