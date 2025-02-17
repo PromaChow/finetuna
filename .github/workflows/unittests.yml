@@ -8,13 +8,13 @@ env:
   OMP_NUM_THREADS: "1"
 jobs:
   light_test:
-    container:
-      credentials:
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-      image: docker://ulissigroup/kubeflow_vasp:amptorch_ocp
-      volumes:
-        - /home/jovyan/shared-scratch:/home/jovyan/shared-scratch
+    # container:
+    #   credentials:
+    #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+    #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+    #   image: docker://ulissigroup/kubeflow_vasp:amptorch_ocp
+    #   volumes:
+    #     - /home/jovyan/shared-scratch:/home/jovyan/shared-scratch
     name: Test
     runs-on:
       - ubuntu-latest
